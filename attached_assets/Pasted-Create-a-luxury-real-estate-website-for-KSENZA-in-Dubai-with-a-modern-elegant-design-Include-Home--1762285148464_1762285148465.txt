@@ -1,0 +1,95 @@
+Create a luxury real estate website for KSENZA in Dubai with a modern, elegant design. Include Home, About Us, Properties (with dynamic search and filters), Blog, and Contact pages. Use warm beige, deep burgundy, and dark charcoal colors. Apply Tiempose Headline for headings and Sora for body text. Make it responsive, user-friendly, and visually inspired by amaliproperties.com and awwwards.com luxury real estate sites.
+
+below are the details .
+Project Overview:
+Build a modern, luxurious, and responsive real estate website for KSENZA, a Dubai-based real estate business. The site should target investors, expatriates, first-time home buyers, and high-net-worth clients. It should cover buying, selling, renting, property management, and commercial real estate services with a focus on luxury properties.
+
+Brand Identity:
+
+Primary Colors: Warm Beige (RGB 188,158,125), Deep Burgundy (RGB 127,20,46), Dark Charcoal (RGB 51,51,51)
+
+Typography:
+
+Primary font: Tiempose Headline (elegant serif for headings)
+
+Secondary font: Sora (clean sans-serif for body and UI text)
+
+Use these colors and fonts consistently to convey luxury and sophistication.
+
+Key Website Pages & Features:
+
+Home:
+
+Showcase luxury properties with large high-quality images.
+
+Brief introduction of KSENZA and its unique value.
+
+Highlight services and target clients.
+
+About Us:
+
+Company story, mission, vision focused on luxury real estate in Dubai.
+
+Professional, trustworthy tone.
+
+Properties / Projects:
+
+Dynamic property listings connected to a backend database.
+
+Each property should have images, descriptions, price, location, and details.
+
+Implement advanced search filters:
+
+Property type (residential, commercial, luxury, etc.)
+
+Size (min/max)
+
+Location within Dubai
+
+Price range
+
+Users can sort/filter listings easily.
+
+Blog:
+
+Articles related to Dubai real estate market, investment tips, luxury living, etc.
+
+Contact:
+
+Modern, visually appealing contact form (not a plain form).
+
+Include fields for name, email, phone, message, and property inquiry options.
+
+Clear call to action to encourage client contact.
+
+Design & UX Requirements:
+
+Clean, elegant, and sophisticated layout inspired by amaliproperties.com and luxury real estate websites on awwwards.com.
+
+Smooth animations, modern UI elements, and polished visuals.
+
+Use brand colors as accents on buttons, headings, and key UI components.
+
+Fully responsive design that looks great on desktop, tablet, and mobile.
+
+Fast loading and SEO-friendly structure.
+
+Additional Notes:
+
+Emphasize trust, exclusivity, and luxury throughout the site.
+
+Navigation should be intuitive and easy to use.
+
+Use large hero images and clean typography for impact.
+
+Integrate backend connectivity for dynamic property data (searchable/filterable).
+
+Contact form must be user-friendly with a modern design approach.
+
+Deliverables:
+
+Complete website with all pages and functionalities described.
+
+Fully styled according to brand guidelines and color palette.
+
+Responsive, fast, and SEO-optimized.

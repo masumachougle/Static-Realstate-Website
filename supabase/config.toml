@@ -1,0 +1,11 @@
+# A string used to distinguish different Supabase projects on the same host. Defaults to "default".
+project_id = "gkkenkrhfcouoqdiakhh"
+
+[api]
+enabled = true
+
+[functions.send-contact-email]
+verify_jwt = false
+
+[functions.manage-user]
+verify_jwt = true
