@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Logo from "@/components/Logo";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -18,9 +19,9 @@ export default function Footer() {
       <div className="page-container py-12 sm:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12">
           <div className="sm:col-span-2 lg:col-span-1">
-            <h3 className="text-2xl font-heading font-semibold text-primary mb-4">
-              RealState Properties
-            </h3>
+            <Link href="/">
+              <Logo className="mb-4 cursor-pointer" />
+            </Link>
             <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed max-w-sm">
               Dubai's Premier Luxury Real Estate Partner. Discover exclusive properties in some of Dubai's most renowned communities.
             </p>

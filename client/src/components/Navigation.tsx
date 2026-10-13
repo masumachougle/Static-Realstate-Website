@@ -4,6 +4,7 @@ import { Menu, X, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import MapsNavButton from "@/components/MapsNavButton";
+import Logo from "@/components/Logo";
 
 export default function Navigation() {
   const [location, setLocation] = useLocation();
@@ -53,22 +54,10 @@ export default function Navigation() {
       <div className="page-container py-3 sm:py-4 lg:py-5">
         <div className="flex items-center justify-between gap-4 min-h-[3.5rem] sm:min-h-[4rem] lg:min-h-[4.5rem]">
           <Link href="/" data-testid="link-home">
-            <div className="flex flex-col cursor-pointer group shrink-0 leading-none">
-              <span
-                className={`font-heading font-semibold tracking-wide text-lg sm:text-xl lg:text-2xl transition-colors group-hover:opacity-80 ${
-                  hasTransparentNav ? "text-white drop-shadow-lg" : "text-primary"
-                }`}
-              >
-                RealState
-              </span>
-              <span
-                className={`text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase ${
-                  hasTransparentNav ? "text-white/75" : "text-muted-foreground"
-                }`}
-              >
-                Properties
-              </span>
-            </div>
+            <Logo
+              tone={hasTransparentNav ? "light" : "brand"}
+              className="cursor-pointer transition-opacity hover:opacity-80"
+            />
           </Link>
 
           <div className="hidden lg:flex items-center gap-3 xl:gap-6 2xl:gap-8 flex-1 justify-center max-w-3xl mx-4">

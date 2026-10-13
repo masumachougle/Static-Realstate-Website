@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Lock } from "lucide-react";
+import Logo from "@/components/Logo";
 
 export default function AdminLogin() {
   const [username, setUsername] = useState("");
@@ -44,11 +44,9 @@ export default function AdminLogin() {
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
           <div className="flex items-center justify-center mb-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary">
-              <Lock className="h-6 w-6 text-primary-foreground" />
-            </div>
+            <Logo />
           </div>
-          <CardTitle className="text-2xl text-center">RealState Properties Admin</CardTitle>
+          <CardTitle className="text-2xl text-center">Admin</CardTitle>
           <CardDescription className="text-center">
             Enter your credentials to access the admin panel
           </CardDescription>

@@ -20,6 +20,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { LogoMark } from "@/components/Logo";
 
 interface Property {
   id: string;
@@ -132,8 +133,8 @@ export function AdminSidebar() {
     <Sidebar className="border-r">
       <SidebarHeader className="p-4 border-b">
         <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center">
-            <Building2 className="h-5 w-5 text-primary" />
+          <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary p-1.5">
+            <LogoMark className="h-full w-full" />
           </div>
           <div className="flex-1 min-w-0">
             <h2 className="text-base font-bold tracking-tight truncate">RealState Properties</h2>
