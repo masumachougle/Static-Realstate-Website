@@ -6,6 +6,7 @@ import { Calendar, User, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { getImageUrl } from "@/lib/imageMap";
+import { articleHtml } from "@/lib/blogText";
 import type { BlogPost } from "@shared/schema";
 
 export default function BlogDetail() {
@@ -101,7 +102,7 @@ export default function BlogDetail() {
                 <div
                   className="blog-article-body text-foreground leading-relaxed text-[0.95rem]"
                   data-testid="text-content"
-                  dangerouslySetInnerHTML={{ __html: post.content }}
+                  dangerouslySetInnerHTML={{ __html: articleHtml(post.content) }}
                 />
               </div>
             </Card>

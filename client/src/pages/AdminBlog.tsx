@@ -55,6 +55,7 @@ import { cn } from "@/lib/utils";
 import { BLOG_CATEGORIES } from "@shared/blogCategories";
 import { getImageUrl } from "@/lib/imageMap";
 import { uploadBlogImage } from "@/lib/blogImages";
+import { htmlToPlainText, plainTextToHtml } from "@/lib/blogText";
 
 interface BlogPost {
   id: string;
@@ -770,13 +771,13 @@ function BlogFormDialog({
 }) {
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("content");
-  const [uploading, setUploading] = useState<"featured" | "inline" | null>(null);
+  const [uploading, setUploading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const uploadTarget = useRef<"featured" | "inline">("featured");
+  const sourceHtml = useRef(post?.content || "");
   const [formData, setFormData] = useState({
     title: post?.title || "",
     excerpt: post?.excerpt || "",
-    content: post?.content || "",
+    content: htmlToPlainText(post?.content || ""),
     category: post?.category || "",
     author: post?.author || "",
     date: post?.date || new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }),
@@ -785,10 +786,11 @@ function BlogFormDialog({
 
   useEffect(() => {
     if (!open) return;
+    sourceHtml.current = post?.content || "";
     setFormData({
       title: post?.title || "",
       excerpt: post?.excerpt || "",
-      content: post?.content || "",
+      content: htmlToPlainText(post?.content || ""),
       category: post?.category || "",
       author: post?.author || "",
       date: post?.date || new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }),
@@ -825,6 +827,16 @@ function BlogFormDialog({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const articleText = formData.content.trim();
+    if (!articleText) {
+      setActiveTab("content");
+      toast({
+        title: "Content required",
+        description: "Write the article before publishing.",
+        variant: "destructive",
+      });
+      return;
+    }
     if (!formData.category) {
       setActiveTab("meta");
       toast({
@@ -843,11 +855,14 @@ function BlogFormDialog({
       });
       return;
     }
-    saveMutation.mutate(formData);
+    const unchanged = formData.content.trim() === htmlToPlainText(sourceHtml.current).trim();
+    saveMutation.mutate({
+      ...formData,
+      content: unchanged ? sourceHtml.current : plainTextToHtml(formData.content),
+    });
   };
 
-  const openImagePicker = (target: "featured" | "inline") => {
-    uploadTarget.current = target;
+  const openImagePicker = () => {
     fileInputRef.current?.click();
   };
 
@@ -856,16 +871,10 @@ function BlogFormDialog({
     event.target.value = "";
     if (!file) return;
 
-    const target = uploadTarget.current;
-    setUploading(target);
+    setUploading(true);
     try {
       const url = await uploadBlogImage(file);
-      if (target === "featured") {
-        setFormData((current) => ({ ...current, image: url }));
-      } else {
-        const figure = `\n<figure class="blog-inline-image"><img src="${url}" alt="" loading="lazy" /></figure>\n`;
-        setFormData((current) => ({ ...current, content: `${current.content}${figure}` }));
-      }
+      setFormData((current) => ({ ...current, image: url }));
       toast({
         title: "Image uploaded",
         description: "Publish the post and it will show on the website.",
@@ -968,18 +977,8 @@ function BlogFormDialog({
 
               <div className="space-y-2">
                 <div className="flex items-center justify-between gap-3">
-                  <Label htmlFor="content">Full Content *</Label>
+                  <Label>Full Content *</Label>
                   <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                    <Button
-                      type="button"
-                      variant="outline"
-                      size="sm"
-                      onClick={() => openImagePicker("inline")}
-                      disabled={uploading !== null}
-                    >
-                      <Upload className="h-3.5 w-3.5 mr-1.5" />
-                      {uploading === "inline" ? "Uploading..." : "Insert image"}
-                    </Button>
                     <span>{wordCount} words</span>
                     <span>{readTime} min read</span>
                   </div>
@@ -988,14 +987,10 @@ function BlogFormDialog({
                   id="content"
                   value={formData.content}
                   onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-                  placeholder="Write your full blog post content here. You can use HTML formatting for rich content..."
+                  placeholder="Write the article in normal text. Leave a blank line between paragraphs."
                   required
-                  rows={15}
-                  className="font-mono text-sm"
+                  rows={14}
                 />
-                <p className="text-xs text-muted-foreground">
-                  Supports HTML formatting for headings, links, lists, and more
-                </p>
               </div>
             </div>
           )}
@@ -1055,11 +1050,11 @@ function BlogFormDialog({
                     <Button
                       type="button"
                       variant="outline"
-                      onClick={() => openImagePicker("featured")}
-                      disabled={uploading !== null}
+                        onClick={openImagePicker}
+                        disabled={uploading}
                     >
                       <Upload className="h-4 w-4 mr-1.5" />
-                      {uploading === "featured" ? "Uploading..." : "Upload"}
+                        {uploading ? "Uploading..." : "Upload"}
                     </Button>
                   </div>
                   {formData.image ? (
