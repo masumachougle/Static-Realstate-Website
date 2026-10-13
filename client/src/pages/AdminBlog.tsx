@@ -118,12 +118,12 @@ export default function AdminBlog() {
 
   const uniqueAuthors = useMemo(() => {
     if (!posts) return [];
-    return [...new Set(posts.map(p => p.author))];
+    return [...new Set(posts.map((p) => p.author).filter(Boolean))];
   }, [posts]);
 
   const uniqueCategories = useMemo(() => {
     if (!posts) return [];
-    return [...new Set(posts.map(p => p.category))];
+    return [...new Set(posts.map((p) => p.category).filter(Boolean))];
   }, [posts]);
 
   const filteredAndSortedPosts = useMemo(() => {
@@ -825,6 +825,15 @@ function BlogFormDialog({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.category) {
+      setActiveTab("meta");
+      toast({
+        title: "Category required",
+        description: "Choose a category before publishing.",
+        variant: "destructive",
+      });
+      return;
+    }
     if (!formData.image) {
       setActiveTab("meta");
       toast({
@@ -1000,14 +1009,14 @@ function BlogFormDialog({
                   <div className="space-y-2">
                     <Label htmlFor="category">Category *</Label>
                     <Select
-                      value={formData.category}
+                      value={formData.category || undefined}
                       onValueChange={(value) => setFormData({ ...formData, category: value })}
                     >
                       <SelectTrigger id="category">
                         <SelectValue placeholder="Select a category" />
                       </SelectTrigger>
                       <SelectContent>
-                        {CATEGORIES.map(cat => (
+                        {CATEGORIES.filter(Boolean).map((cat) => (
                           <SelectItem key={cat} value={cat}>{cat}</SelectItem>
                         ))}
                       </SelectContent>
