@@ -19,7 +19,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12">
           <div className="sm:col-span-2 lg:col-span-1">
             <h3 className="text-2xl font-heading font-semibold text-primary mb-4">
-              Ksenza Hayat Properties
+              RealState Properties
             </h3>
             <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed max-w-sm">
               Dubai's Premier Luxury Real Estate Partner. Discover exclusive properties in some of Dubai's most renowned communities.
@@ -86,7 +86,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-primary flex-shrink-0" />
-                <span className="text-sm sm:text-base text-muted-foreground break-all">info@ksenzaproperties.ae</span>
+                <span className="text-sm sm:text-base text-muted-foreground break-all">info@realstateproperties.com</span>
               </li>
             </ul>
           </div>
@@ -95,7 +95,7 @@ export default function Footer() {
         <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
             <p className="text-sm text-muted-foreground">
-              © 2024 Ksenza Hayat Properties. All rights reserved.
+              © 2024 RealState Properties. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
               <Link href="/privacy">

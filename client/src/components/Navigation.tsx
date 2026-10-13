@@ -4,7 +4,6 @@ import { Menu, X, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import MapsNavButton from "@/components/MapsNavButton";
-import logoImage from "@assets/Ksenza Logo-01_1762432222638.png";
 
 export default function Navigation() {
   const [location, setLocation] = useLocation();
@@ -54,14 +53,21 @@ export default function Navigation() {
       <div className="page-container py-3 sm:py-4 lg:py-5">
         <div className="flex items-center justify-between gap-4 min-h-[3.5rem] sm:min-h-[4rem] lg:min-h-[4.5rem]">
           <Link href="/" data-testid="link-home">
-            <div className="flex items-center cursor-pointer group shrink-0">
-              <img
-                src={logoImage}
-                alt="Ksenza Hayat Properties Logo"
-                className={`h-14 sm:h-16 lg:h-20 xl:h-24 w-auto object-contain transition-all duration-300 group-hover:scale-105 ${
-                  hasTransparentNav ? "brightness-0 invert drop-shadow-lg" : ""
+            <div className="flex flex-col cursor-pointer group shrink-0 leading-none">
+              <span
+                className={`font-heading font-semibold tracking-wide text-lg sm:text-xl lg:text-2xl transition-colors group-hover:opacity-80 ${
+                  hasTransparentNav ? "text-white drop-shadow-lg" : "text-primary"
                 }`}
-              />
+              >
+                RealState
+              </span>
+              <span
+                className={`text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase ${
+                  hasTransparentNav ? "text-white/75" : "text-muted-foreground"
+                }`}
+              >
+                Properties
+              </span>
             </div>
           </Link>
 

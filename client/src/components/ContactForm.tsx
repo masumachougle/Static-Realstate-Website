@@ -47,7 +47,7 @@ export default function ContactForm({
     onSuccess: () => {
       toast({
         title: "Message Sent!",
-        description: "Thank you for contacting Ksenza Hayat Properties. We'll get back to you shortly.",
+        description: "Thank you for contacting RealState Properties. We'll get back to you shortly.",
       });
       setFormData({
         name: "",

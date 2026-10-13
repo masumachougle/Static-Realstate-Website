@@ -1,8 +1,8 @@
-# KSENZA Luxury Real Estate Website
+# RealState Properties Luxury Real Estate Website
 
 ## Overview
 
-KSENZA is a luxury real estate platform specializing in high-end properties in Dubai. The application targets investors, expatriates, first-time home buyers, and high-net-worth individuals seeking premium residential and commercial properties. The platform features property listings with advanced search and filtering, property comparison (up to 3 properties), favorites system, expandable photo galleries, currency conversion, availability status indicators, blog for market insights, WhatsApp contact widget, newsletter popup, and contact forms.
+RealState Properties is a luxury real estate platform specializing in high-end properties in Dubai. The application targets investors, expatriates, first-time home buyers, and high-net-worth individuals seeking premium residential and commercial properties. The platform features property listings with advanced search and filtering, property comparison (up to 3 properties), favorites system, expandable photo galleries, currency conversion, availability status indicators, blog for market insights, WhatsApp contact widget, newsletter popup, and contact forms.
 
 The application is built as a full-stack web application with a React frontend and Express backend, using PostgreSQL database for data persistence via Drizzle ORM. An admin panel allows content managers to create, edit, and delete properties and blog posts, as well as view customer inquiries.
 
@@ -30,11 +30,11 @@ Preferred communication style: Simple, everyday language.
 - AuthContext: React Context for admin authentication state and login/logout functions
 - ThemeContext: React Context for light/dark theme state (admin panel)
 - ComparisonContext: React Context for managing property comparison state (up to 3 properties)
-- FavoritesContext: React Context for managing favorited properties (persisted in localStorage with key "ksenza-favorites")
+- FavoritesContext: React Context for managing favorited properties (persisted in localStorage with key "realstate-favorites")
 - Local component state with React hooks
 - localStorage for client-side persistence:
   - "theme": Light/dark theme preference for admin panel
-  - "ksenza-favorites": Array of favorited property IDs
+  - "realstate-favorites": Array of favorited property IDs
   - "newsletter-subscribed": Newsletter subscription status
   - "newsletter-dismissed": Newsletter popup dismissal status
 - No global state management library (Redux, Zustand, etc.)

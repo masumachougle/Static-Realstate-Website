@@ -32,7 +32,7 @@ function parseMetaComment(raw: string): BlogFileMeta {
     title: meta.title || "",
     excerpt: meta.excerpt || "",
     category: meta.category || "",
-    author: meta.author || "KSENZA Team",
+    author: meta.author || "RealState Properties Team",
     date: meta.date || "",
     featuredImage: meta.featuredImage || "",
     slug: meta.slug || "",

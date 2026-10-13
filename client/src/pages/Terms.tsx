@@ -18,7 +18,7 @@ export default function Terms() {
             <section>
               <h2 className="text-2xl font-heading font-semibold mb-4">1. Acceptance of Terms</h2>
               <p className="text-muted-foreground leading-relaxed">
-                By accessing and using the KSENZA Real Estate website and services, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
+                By accessing and using the RealState Properties website and services, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
               </p>
             </section>
 
@@ -46,7 +46,7 @@ export default function Terms() {
             <section>
               <h2 className="text-2xl font-heading font-semibold mb-4">4. Intellectual Property</h2>
               <p className="text-muted-foreground leading-relaxed">
-                The content on our website, including text, graphics, logos, images, and software, is the property of KSENZA Real Estate and is protected by copyright, trademark, and other intellectual property laws. You may not reproduce, distribute, or create derivative works from our content without express written permission.
+                The content on our website, including text, graphics, logos, images, and software, is the property of RealState Properties and is protected by copyright, trademark, and other intellectual property laws. You may not reproduce, distribute, or create derivative works from our content without express written permission.
               </p>
             </section>
 
@@ -60,14 +60,14 @@ export default function Terms() {
             <section>
               <h2 className="text-2xl font-heading font-semibold mb-4">6. Limitation of Liability</h2>
               <p className="text-muted-foreground leading-relaxed">
-                KSENZA Real Estate shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use our services. Our total liability shall not exceed the amount paid by you, if any, for accessing our services.
+                RealState Properties shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use our services. Our total liability shall not exceed the amount paid by you, if any, for accessing our services.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-heading font-semibold mb-4">7. Indemnification</h2>
               <p className="text-muted-foreground leading-relaxed">
-                You agree to indemnify and hold KSENZA Real Estate harmless from any claims, damages, losses, liabilities, and expenses arising out of your use of our services or violation of these Terms.
+                You agree to indemnify and hold RealState Properties harmless from any claims, damages, losses, liabilities, and expenses arising out of your use of our services or violation of these Terms.
               </p>
             </section>
 
@@ -91,8 +91,8 @@ export default function Terms() {
                 For questions about these Terms of Service, please contact us at:
               </p>
               <p className="text-muted-foreground leading-relaxed mt-4">
-                <strong>KSENZA Real Estate</strong><br />
-                Email: legal@ksenza.ae<br />
+                <strong>RealState Properties</strong><br />
+                Email: legal@realstateproperties.com<br />
                 Phone: +971 4 123 4567
               </p>
             </section>

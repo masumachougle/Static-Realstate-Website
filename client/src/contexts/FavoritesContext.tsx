@@ -13,12 +13,12 @@ const FavoritesContext = createContext<FavoritesContextType | undefined>(undefin
 
 export function FavoritesProvider({ children }: { children: ReactNode }) {
   const [favorites, setFavorites] = useState<Property[]>(() => {
-    const saved = localStorage.getItem("ksenza-favorites");
+    const saved = localStorage.getItem("realstate-favorites");
     return saved ? JSON.parse(saved) : [];
   });
 
   useEffect(() => {
-    localStorage.setItem("ksenza-favorites", JSON.stringify(favorites));
+    localStorage.setItem("realstate-favorites", JSON.stringify(favorites));
   }, [favorites]);
 
   const addToFavorites = (property: Property) => {

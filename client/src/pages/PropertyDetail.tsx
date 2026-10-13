@@ -274,7 +274,7 @@ export default function PropertyDetail() {
               <h3 className="text-lg font-heading font-semibold mb-4">Contact Agent</h3>
               <div className="space-y-4">
                 <div className="rounded-lg bg-muted/40 px-4 py-3">
-                  <p className="font-medium mb-0.5">Ksenza Hayat Properties</p>
+                  <p className="font-medium mb-0.5">RealState Properties</p>
                   <p className="text-sm text-muted-foreground">Luxury Property Specialist</p>
                 </div>
                 <div className="space-y-2.5">
@@ -294,7 +294,7 @@ export default function PropertyDetail() {
                     data-testid="button-email"
                   >
                     <Mail className="mr-2 h-4 w-4 text-primary" />
-                    info@ksenza.ae
+                    info@realstateproperties.com
                   </Button>
                 </div>
               </div>

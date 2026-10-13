@@ -167,13 +167,13 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div className="order-2 lg:order-1">
               <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-medium uppercase tracking-[0.12em] mb-4">
-                Why Ksenza Hayat Properties
+                Why RealState Properties
               </span>
               <h2 className="section-heading">
-                Why Choose <span className="font-semibold">Ksenza Hayat Properties</span>
+                Why Choose <span className="font-semibold">RealState Properties</span>
               </h2>
               <p className="text-base sm:text-lg text-muted-foreground mb-8 leading-relaxed">
-                Ksenza Hayat Properties has been the leading option for highly selective individuals looking for
+                RealState Properties has been the leading option for highly selective individuals looking for
                 outstanding properties and excellent service in Dubai's luxury real estate market
                 for more than a decade.
               </p>

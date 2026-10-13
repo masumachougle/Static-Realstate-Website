@@ -990,7 +990,7 @@ export default function AdminPropertyDetail() {
                       id="metaTitle"
                       value={formData.metaTitle}
                       onChange={(e) => setFormData(prev => ({ ...prev, metaTitle: e.target.value }))}
-                      placeholder="e.g., Luxury 5BR Villa in Palm Jumeirah | KSENZA"
+                      placeholder="e.g., Luxury 5BR Villa in Palm Jumeirah | RealState Properties"
                       data-testid="input-meta-title"
                     />
                     <p className="text-xs text-muted-foreground">{formData.metaTitle.length}/60 characters recommended</p>

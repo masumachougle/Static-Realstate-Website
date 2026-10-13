@@ -984,7 +984,7 @@ function BlogFormDialog({
                     {formData.title || "Your Post Title"}
                   </p>
                   <p className="text-emerald-600 text-sm mt-1">
-                    ksenza.ae/blog/{post?.id || "new-post"}
+                    realstateproperties.com/blog/{post?.id || "new-post"}
                   </p>
                   <p className="text-muted-foreground text-sm mt-2 line-clamp-2">
                     {formData.excerpt || "Your post excerpt will appear here..."}

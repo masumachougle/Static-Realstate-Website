@@ -48,7 +48,7 @@ export default function AdminLogin() {
               <Lock className="h-6 w-6 text-primary-foreground" />
             </div>
           </div>
-          <CardTitle className="text-2xl text-center">KSENZA Admin</CardTitle>
+          <CardTitle className="text-2xl text-center">RealState Properties Admin</CardTitle>
           <CardDescription className="text-center">
             Enter your credentials to access the admin panel
           </CardDescription>

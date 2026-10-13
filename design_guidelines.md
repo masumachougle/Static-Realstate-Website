@@ -1,4 +1,4 @@
-# KSENZA Luxury Real Estate Website - Design Guidelines
+# RealState Properties Luxury Real Estate Website - Design Guidelines
 
 ## Design Approach
 
@@ -86,7 +86,7 @@ Use Tailwind units: 2, 4, 6, 8, 12, 16, 20, 24, 32
 - Cinematic full-bleed image/video background showcasing Dubai skyline or luxury property
 - Centered content overlay with translucent dark gradient
 - Large Tiempose headline: "Discover Luxury Living in Dubai"
-- Subheading in Sora describing KSENZA's unique value
+- Subheading in Sora describing RealState Properties' unique value
 - Primary CTA button with blurred background: "Explore Properties"
 - Secondary link: "Schedule Consultation"
 - Scroll indicator at bottom
@@ -103,7 +103,7 @@ Use Tailwind units: 2, 4, 6, 8, 12, 16, 20, 24, 32
 - Services: Buying, Selling, Renting, Property Management
 - Brief description under each
 
-**Why KSENZA Section:**
+**Why RealState Properties Section:**
 - Split layout: Large luxury property image left, content right (stacked mobile)
 - 4-5 key differentiators with burgundy accent marks
 - Elegant typography hierarchy
@@ -183,7 +183,7 @@ Use Tailwind units: 2, 4, 6, 8, 12, 16, 20, 24, 32
 
 **Navigation:**
 - Top navigation bar with transparent background over hero, solid on scroll
-- KSENZA logo left, menu items center/right
+- RealState Properties logo left, menu items center/right
 - Desktop: Horizontal menu with dropdown for Properties
 - Mobile: Hamburger menu with slide-in drawer
 - Search icon, language switcher, contact CTA button
@@ -226,7 +226,7 @@ Use Tailwind units: 2, 4, 6, 8, 12, 16, 20, 24, 32
 
 1. **Home Hero**: Dubai skyline at golden hour or luxury waterfront property (full-width, min 1920x1080)
 2. **Featured Properties**: 6-9 high-quality property photos showcasing interiors and exteriors
-3. **About Us Hero**: Professional Dubai cityscape or KSENZA office exterior
+3. **About Us Hero**: Professional Dubai cityscape or RealState Properties office exterior
 4. **Company Story**: 2-3 images showing Dubai development, team at work
 5. **Team Members**: Professional headshots of 6-8 team members
 6. **Property Listings**: Multiple images per property (15-20 unique properties for demo)

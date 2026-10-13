@@ -17,13 +17,13 @@ import ContactForm from "@/components/ContactForm";
 import { useViewingBooking } from "@/contexts/ViewingBookingContext";
 
 const OFFICE = {
-  name: "Ksenza Hayat Properties",
+  name: "RealState Properties",
   address: "IBN Battuta Mall Gate Office",
   city: "Dubai, United Arab Emirates",
   lat: 25.0464,
   lng: 55.1178,
   phones: ["+971 4 123 4567", "+971 50 123 4567"],
-  emails: ["info@ksenza.ae", "sales@ksenza.ae"],
+  emails: ["info@realstateproperties.com", "sales@realstateproperties.com"],
 };
 
 const highlights = [

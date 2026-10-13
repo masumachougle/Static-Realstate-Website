@@ -61,7 +61,7 @@ export default function Mortgages() {
                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary/40 rounded-l-xl" />
                 <div className="space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed pl-2">
                   <p>
-                    Whether you're a first-time homebuyer or growing your real estate portfolio, KSENZA helps you navigate UAE mortgage options with clarity and confidence.
+                    Whether you're a first-time homebuyer or growing your real estate portfolio, RealState Properties helps you navigate UAE mortgage options with clarity and confidence.
                   </p>
                   <p>
                     With the help of our mortgage calculator, you can easily calculate your monthly payments and connect with our staff to obtain assistance with preapproval and lenders.

@@ -36,7 +36,7 @@ const values = [
     icon: Users,
     title: "Client Focus",
     description:
-      "At KSENZA, we prioritise our clients, providing expert advice and premium service that delivers achievable success.",
+      "At RealState Properties, we prioritise our clients, providing expert advice and premium service that delivers achievable success.",
   },
 ];
 
@@ -56,7 +56,7 @@ export default function About() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/70" />
           <div className="relative z-10 text-center text-white px-4 space-y-3 sm:space-y-4 max-w-3xl mx-auto">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-light leading-tight text-white">
-              Discover <span className="font-semibold">KSENZA</span>
+              Discover <span className="font-semibold">RealState Properties</span>
             </h1>
             <p className="text-sm sm:text-base md:text-lg text-white/90 max-w-2xl leading-relaxed mx-auto">
               Dubai's Exclusive Luxury Real Estate Property Experts.
@@ -99,33 +99,33 @@ export default function About() {
               <div className="relative rounded-xl border border-primary/15 bg-gradient-to-br from-primary/5 to-accent/5 p-5 sm:p-6 mb-6 overflow-hidden">
                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary/40 rounded-l-xl" />
                 <p className="text-sm sm:text-base text-muted-foreground leading-relaxed pl-2">
-                  In 2025, A grounding thought emerged, one that carried the calm of zen and the
-                  clarity of true essence. The meaning of{" "}
-                  <span className="font-medium text-foreground">Ksenza</span> took shape as the name
-                  that embodies balance, presence, purpose & values that mirror the foundation of
-                  luxury properties in Dubai. Creating spaces that offer harmony, security, and a
-                  sense of belonging.
+                  In 2025, a grounding thought emerged, one that carried the calm of zen and the
+                  clarity of true essence.{" "}
+                  <span className="font-medium text-foreground">RealState Properties</span> took shape
+                  as a name that embodies balance, presence, purpose and values that mirror the
+                  foundation of luxury properties in Dubai. Creating spaces that offer harmony,
+                  security, and a sense of belonging.
                 </p>
               </div>
 
               <div className="space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
                 <p>
-                  Ksenza set out to redefine what luxury real estate in Dubai should feel like. A
+                  RealState Properties set out to redefine what luxury real estate in Dubai should feel like. A
                   guided experience based on a vision born from stillness, inspired by the desire to
                   shape properties that feel meaningful, centred, and alive.
                 </p>
                 <p>
                   Our growth is driven by a group of talented real estate professionals who are all
                   committed to contemporary standards and a proactive approach. Each individual at
-                  Ksenza brings extensive market knowledge and a shared commitment to assisting
+                  RealState Properties brings extensive market knowledge and a shared commitment to assisting
                   clients in making confident decisions. Creating a culture centred on transparency,
                   insight, and longterm relationships for our customers.
                 </p>
                 <p>
-                  Whether you're searching for the perfect home or a strategic investment, At Ksenza
+                  Whether you're searching for the perfect home or a strategic investment, at RealState Properties
                   we guide you through every step. Every property in our portfolio, from
                   sophisticated homes to profitable investment opportunities, is chosen with the same
-                  goal in mind. At Ksenza, we don't just find properties. We help people find the
+                  goal in mind. At RealState Properties, we don't just find properties. We help people find the
                   place where their life truly fits.
                 </p>
               </div>
@@ -160,7 +160,7 @@ export default function About() {
               Our <span className="font-semibold">Principles</span>
             </h2>
             <p className="section-subheading mx-auto">
-              Our core principles that defines Ksenza's approach in Dubai's luxury property market.
+              Our core principles that define RealState Properties' approach in Dubai's luxury property market.
             </p>
           </div>
 

@@ -3,9 +3,9 @@ import type { Contact } from "@shared/schema";
 
 const resendApiKey = process.env.RESEND_API_KEY;
 const notificationEmail =
-  process.env.RESEND_NOTIFICATION_EMAIL ?? "info@ksenzaproperties.ae";
+  process.env.RESEND_NOTIFICATION_EMAIL ?? "info@realstateproperties.com";
 const fromEmail =
-  process.env.RESEND_FROM_EMAIL ?? "KSENZA Hayat Properties <info@ksenzaproperties.ae>";
+  process.env.RESEND_FROM_EMAIL ?? "RealState Properties <info@realstateproperties.com>";
 
 let resend: Resend | null = null;
 
@@ -95,7 +95,7 @@ function buildContactEmailHtml(contact: Contact): string {
     <div style="font-family: Arial, sans-serif; line-height: 1.5; color: #333;">
       <h2 style="margin: 0 0 16px; color: #7f142e;">${title}</h2>
       <p style="margin: 0 0 20px; color: #666;">
-        A new ${isViewing ? "viewing request" : "contact form submission"} was received on the Ksenza Hayat Properties website.
+        A new ${isViewing ? "viewing request" : "contact form submission"} was received on the RealState Properties website.
       </p>
       <table style="width: 100%; border-collapse: collapse; background: #fafafa; border: 1px solid #eee; border-radius: 8px;">
         <tbody>${tableRows}</tbody>

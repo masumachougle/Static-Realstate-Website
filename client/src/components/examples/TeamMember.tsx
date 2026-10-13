@@ -8,7 +8,7 @@ export default function TeamMemberExample() {
         name="Ahmed Al Mansouri"
         role="Senior Real Estate Consultant"
         image={memberImage}
-        email="ahmed@ksenza.ae"
+        email="ahmed@realstateproperties.com"
         phone="+971 50 123 4567"
       />
     </div>

@@ -34,7 +34,7 @@ export default function Hero() {
       <div className="relative z-10 w-full px-4 sm:px-6 text-center max-w-5xl mx-auto pt-24 sm:pt-28 pb-20 sm:pb-24">
         <div className="animate-in fade-in slide-in-from-right-4 duration-1000 fill-mode-both">
           <p className="mb-2.5 text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.16em] text-white/60">
-            Ksenza Hayat Properties
+            RealState Properties
           </p>
           <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-heading font-light text-white mb-4 sm:mb-5 tracking-wide leading-snug">
             Experience Luxury Living
@@ -42,7 +42,7 @@ export default function Hero() {
             <span className="font-semibold">in Dubai</span>
           </h1>
           <p className="text-xs sm:text-sm text-white/80 mb-8 sm:mb-10 max-w-xl mx-auto leading-relaxed px-2">
-            Discover extraordinary elegance and luxury with Ksenza Hayat Properties' exclusive collection
+            Discover extraordinary elegance and luxury with RealState Properties' exclusive collection
             of high-end properties in Dubai's most recognised neighbourhoods.
           </p>
         </div>

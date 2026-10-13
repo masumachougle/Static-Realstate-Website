@@ -21,12 +21,12 @@ export function IntroVideo() {
   };
 
   const handleSkip = () => {
-    localStorage.setItem("ksenza-intro-seen", "true");
+    localStorage.setItem("realstate-intro-seen", "true");
     setShowVideo(false);
   };
 
   const handleVideoEnd = () => {
-    localStorage.setItem("ksenza-intro-seen", "true");
+    localStorage.setItem("realstate-intro-seen", "true");
     setShowVideo(false);
   };
 
@@ -54,7 +54,7 @@ export function IntroVideo() {
         {!videoStarted ? (
           <div className="relative z-10 text-center space-y-6">
             <h2 className="text-4xl md:text-5xl font-heading text-white mb-4">
-              Welcome to Ksenza Hayat Properties
+              Welcome to RealState Properties
             </h2>
             <p className="text-lg text-white/90 mb-8">
               Essence Of Life

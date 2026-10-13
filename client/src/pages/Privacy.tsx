@@ -18,7 +18,7 @@ export default function Privacy() {
             <section>
               <h2 className="text-2xl font-heading font-semibold mb-4">1. Introduction</h2>
               <p className="text-muted-foreground leading-relaxed">
-                KSENZA Real Estate ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
+                RealState Properties ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
               </p>
             </section>
 
@@ -83,8 +83,8 @@ export default function Privacy() {
                 If you have any questions about this Privacy Policy or our data practices, please contact us at:
               </p>
               <p className="text-muted-foreground leading-relaxed mt-4">
-                <strong>KSENZA Real Estate</strong><br />
-                Email: privacy@ksenza.ae<br />
+                <strong>RealState Properties</strong><br />
+                Email: privacy@realstateproperties.com<br />
                 Phone: +971 4 123 4567
               </p>
             </section>

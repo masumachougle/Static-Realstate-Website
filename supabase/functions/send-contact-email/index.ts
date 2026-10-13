@@ -2,10 +2,10 @@ import { serve } from "https://deno.land/std@0.224.0/http/server.ts";
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 const NOTIFICATION_EMAIL =
-  Deno.env.get("RESEND_NOTIFICATION_EMAIL") ?? "info@ksenzaproperties.ae";
+  Deno.env.get("RESEND_NOTIFICATION_EMAIL") ?? "info@realstateproperties.com";
 const FROM_EMAIL =
   Deno.env.get("RESEND_FROM_EMAIL") ??
-  "KSENZA Hayat Properties <info@ksenzaproperties.ae>";
+  "RealState Properties <info@realstateproperties.com>";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -92,7 +92,7 @@ function buildContactEmailHtml(contact: ContactPayload): string {
     <div style="font-family: Arial, sans-serif; line-height: 1.5; color: #333;">
       <h2 style="margin: 0 0 16px; color: #7f142e;">${title}</h2>
       <p style="margin: 0 0 20px; color: #666;">
-        A new ${isViewing ? "viewing request" : "contact form submission"} was received on the Ksenza Hayat Properties website.
+        A new ${isViewing ? "viewing request" : "contact form submission"} was received on the RealState Properties website.
       </p>
       <table style="width: 100%; border-collapse: collapse; background: #fafafa; border: 1px solid #eee; border-radius: 8px;">
         <tbody>${tableRows}</tbody>
