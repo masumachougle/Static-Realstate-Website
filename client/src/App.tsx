@@ -1,4 +1,4 @@
-import { Switch, Route, useLocation } from "wouter";
+import { Switch, Route, useLocation, Redirect } from "wouter";
 import { useEffect } from "react";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
@@ -63,7 +63,6 @@ function Router() {
       <Route path="/mortgages" component={Mortgages} />
       <Route path="/privacy" component={Privacy} />
       <Route path="/terms" component={Terms} />
-      <Route path="/admin/login" component={AdminLogin} />
       <Route path="/admin/properties">
         <AdminLayout>
           <AdminProperties />
@@ -129,7 +128,10 @@ function App() {
                   <IntroVideo />
                   <ScrollToTop />
                   <Switch>
-                    <Route path="/admin/login" component={AdminLogin} />
+                    <Route path="/admin" component={AdminLogin} />
+                    <Route path="/admin/login">
+                      <Redirect to="/admin" />
+                    </Route>
                     <Route path="/admin/:rest*">
                       <Router />
                     </Route>

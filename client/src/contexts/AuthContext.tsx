@@ -60,7 +60,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     try {
       await supabaseLogout();
       setIsAuthenticated(false);
-      setLocation("/admin/login");
+      setLocation("/admin");
     } catch (error) {
       console.error("Logout error:", error);
     }

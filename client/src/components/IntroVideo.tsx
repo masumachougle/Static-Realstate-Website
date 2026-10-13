@@ -1,17 +1,21 @@
 import { useState, useEffect, useRef } from "react";
+import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Play, SkipForward } from "lucide-react";
 import introVideoSrc from "@assets/VIDEO-2025-11-05-16-42-31_1762428832506.mp4";
 
 export function IntroVideo() {
+  const [location] = useLocation();
   const [showVideo, setShowVideo] = useState(false);
   const [videoStarted, setVideoStarted] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const isAdminRoute = location.startsWith("/admin");
 
   useEffect(() => {
+    if (isAdminRoute) return;
     // Always show video for now (testing mode)
     setShowVideo(true);
-  }, []);
+  }, [isAdminRoute]);
 
   const handleStart = () => {
     if (videoRef.current) {
@@ -30,7 +34,7 @@ export function IntroVideo() {
     setShowVideo(false);
   };
 
-  if (!showVideo) {
+  if (isAdminRoute || !showVideo) {
     return null;
   }
 
