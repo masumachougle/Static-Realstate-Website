@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Logo from "@/components/Logo";
+import { contactInfo } from "@/lib/contactInfo";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -78,16 +79,26 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                 <span className="text-sm sm:text-base text-muted-foreground">
-                  IBN Battuta Mall Gate Office - Dubai
+                  {contactInfo.address}
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-primary flex-shrink-0" />
-                <span className="text-sm sm:text-base text-muted-foreground">+971 50 634 9969</span>
+                <a
+                  href={`tel:${contactInfo.phoneTel}`}
+                  className="text-sm sm:text-base text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {contactInfo.phoneDisplay}
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-primary flex-shrink-0" />
-                <span className="text-sm sm:text-base text-muted-foreground break-all">info@realstateproperties.com</span>
+                <a
+                  href={`mailto:${contactInfo.emails.info}`}
+                  className="text-sm sm:text-base text-muted-foreground break-all hover:text-primary transition-colors"
+                >
+                  {contactInfo.emails.info}
+                </a>
               </li>
             </ul>
           </div>

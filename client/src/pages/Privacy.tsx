@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card";
+import { contactInfo } from "@/lib/contactInfo";
 
 export default function Privacy() {
   return (
@@ -84,8 +85,8 @@ export default function Privacy() {
               </p>
               <p className="text-muted-foreground leading-relaxed mt-4">
                 <strong>RealState Properties</strong><br />
-                Email: privacy@realstateproperties.com<br />
-                Phone: +971 4 123 4567
+                Email: {contactInfo.emails.privacy}<br />
+                Phone: {contactInfo.phoneDisplay}
               </p>
             </section>
           </div>

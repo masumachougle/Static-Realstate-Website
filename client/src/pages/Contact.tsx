@@ -15,15 +15,15 @@ import { useEffect } from "react";
 import { useSearch } from "wouter";
 import ContactForm from "@/components/ContactForm";
 import { useViewingBooking } from "@/contexts/ViewingBookingContext";
+import { contactInfo } from "@/lib/contactInfo";
 
 const OFFICE = {
-  name: "RealState Properties",
-  address: "IBN Battuta Mall Gate Office",
-  city: "Dubai, United Arab Emirates",
-  lat: 25.0464,
-  lng: 55.1178,
-  phones: ["+971 4 123 4567", "+971 50 123 4567"],
-  emails: ["info@realstateproperties.com", "sales@realstateproperties.com"],
+  name: contactInfo.name,
+  address: contactInfo.address,
+  lat: contactInfo.lat,
+  lng: contactInfo.lng,
+  phones: [contactInfo.phoneDisplay],
+  emails: [contactInfo.emails.info, contactInfo.emails.sales],
 };
 
 const highlights = [
@@ -132,8 +132,6 @@ export default function Contact() {
                       <h4 className="font-semibold text-sm mb-1">Our Office</h4>
                       <p className="text-sm text-muted-foreground leading-relaxed">
                         {OFFICE.address}
-                        <br />
-                        {OFFICE.city}
                       </p>
                     </div>
                   </div>
@@ -264,7 +262,7 @@ export default function Contact() {
               title={`${OFFICE.name} — ${OFFICE.address}`}
               lat={OFFICE.lat}
               lng={OFFICE.lng}
-              zoom={16}
+              zoom={12}
               interactive
               className="h-[280px] sm:h-[360px] lg:h-[400px] w-full rounded-none"
             />

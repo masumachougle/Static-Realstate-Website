@@ -1,7 +1,7 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { contactInfo } from "@/lib/contactInfo";
 
-const WHATSAPP_NUMBER = "971501234567";
+const WHATSAPP_NUMBER = contactInfo.whatsapp;
 const DEFAULT_MESSAGE = "Hi, I'm interested in learning more about your properties.";
 
 function WhatsAppIcon({ className }: { className?: string }) {

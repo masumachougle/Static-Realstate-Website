@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card";
+import { contactInfo } from "@/lib/contactInfo";
 
 export default function Terms() {
   return (
@@ -92,8 +93,8 @@ export default function Terms() {
               </p>
               <p className="text-muted-foreground leading-relaxed mt-4">
                 <strong>RealState Properties</strong><br />
-                Email: legal@realstateproperties.com<br />
-                Phone: +971 4 123 4567
+                Email: {contactInfo.emails.legal}<br />
+                Phone: {contactInfo.phoneDisplay}
               </p>
             </section>
           </div>

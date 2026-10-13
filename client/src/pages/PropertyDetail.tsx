@@ -26,6 +26,7 @@ import MapLocation from "@/components/MapLocation";
 import MortgageCalculator from "@/components/MortgageCalculator";
 import { getPropertyCoordinates } from "@/lib/locationCoordinates";
 import { useViewingBooking } from "@/contexts/ViewingBookingContext";
+import { contactInfo } from "@/lib/contactInfo";
 
 export default function PropertyDetail() {
   const [, params] = useRoute("/property/:id");
@@ -281,20 +282,24 @@ export default function PropertyDetail() {
                   <Button
                     variant="outline"
                     className="w-full justify-start"
-                    onClick={() => console.log("Call clicked")}
+                    asChild
                     data-testid="button-call"
                   >
-                    <Phone className="mr-2 h-4 w-4 text-primary" />
-                    +971 4 123 4567
+                    <a href={`tel:${contactInfo.phoneTel}`}>
+                      <Phone className="mr-2 h-4 w-4 text-primary" />
+                      {contactInfo.phoneDisplay}
+                    </a>
                   </Button>
                   <Button
                     variant="outline"
                     className="w-full justify-start"
-                    onClick={() => console.log("Email clicked")}
+                    asChild
                     data-testid="button-email"
                   >
-                    <Mail className="mr-2 h-4 w-4 text-primary" />
-                    info@realstateproperties.com
+                    <a href={`mailto:${contactInfo.emails.info}`}>
+                      <Mail className="mr-2 h-4 w-4 text-primary" />
+                      {contactInfo.emails.info}
+                    </a>
                   </Button>
                 </div>
               </div>
