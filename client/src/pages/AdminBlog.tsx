@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { queryClient, apiRequest } from "@/lib/queryClient";
 import { Button } from "@/components/ui/button";
@@ -7,7 +7,7 @@ import {
   Plus, Pencil, Trash2, Search, Filter, LayoutGrid, List, 
   FileText, TrendingUp, Eye, MoreHorizontal, Download, RefreshCw, 
   Calendar, User, Tag, ExternalLink, Copy, ArrowUpDown, Clock,
-  BookOpen, Sparkles, CheckCircle2, Image, Link2
+  BookOpen, Sparkles, CheckCircle2, Image, Link2, Upload
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import {
@@ -53,6 +53,8 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { BLOG_CATEGORIES } from "@shared/blogCategories";
+import { getImageUrl } from "@/lib/imageMap";
+import { uploadBlogImage } from "@/lib/blogImages";
 
 interface BlogPost {
   id: string;
@@ -529,7 +531,11 @@ export default function AdminBlog() {
                         <TableCell>
                           <div className="flex items-center gap-3">
                             <div className="w-16 h-12 rounded-lg bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center overflow-hidden">
-                              <FileText className="h-5 w-5 text-primary/50" />
+                              {post.image ? (
+                                <img src={getImageUrl(post.image)} alt="" className="h-full w-full object-cover" />
+                              ) : (
+                                <FileText className="h-5 w-5 text-primary/50" />
+                              )}
                             </div>
                             <div className="min-w-0">
                               <p className="font-medium truncate max-w-[250px]">{post.title}</p>
@@ -654,7 +660,11 @@ export default function AdminBlog() {
                         {post.category}
                       </Badge>
                     </div>
-                    <FileText className="h-12 w-12 text-primary/30" />
+                    {post.image ? (
+                      <img src={getImageUrl(post.image)} alt="" className="absolute inset-0 h-full w-full object-cover" />
+                    ) : (
+                      <FileText className="h-12 w-12 text-primary/30" />
+                    )}
                   </div>
                   <CardContent className="p-5">
                     <div className="space-y-4">
@@ -739,6 +749,7 @@ export default function AdminBlog() {
 
         {/* Blog Form Dialog */}
         <BlogFormDialog
+          key={editingPost?.id ?? "new"}
           open={isDialogOpen}
           onOpenChange={setIsDialogOpen}
           post={editingPost}
@@ -759,6 +770,9 @@ function BlogFormDialog({
 }) {
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("content");
+  const [uploading, setUploading] = useState<"featured" | "inline" | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const uploadTarget = useRef<"featured" | "inline">("featured");
   const [formData, setFormData] = useState({
     title: post?.title || "",
     excerpt: post?.excerpt || "",
@@ -768,6 +782,19 @@ function BlogFormDialog({
     date: post?.date || new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }),
     image: post?.image || "",
   });
+
+  useEffect(() => {
+    if (!open) return;
+    setFormData({
+      title: post?.title || "",
+      excerpt: post?.excerpt || "",
+      content: post?.content || "",
+      category: post?.category || "",
+      author: post?.author || "",
+      date: post?.date || new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }),
+      image: post?.image || "",
+    });
+  }, [open, post]);
 
   const saveMutation = useMutation({
     mutationFn: async (data: any) => {
@@ -798,7 +825,51 @@ function BlogFormDialog({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.image) {
+      setActiveTab("meta");
+      toast({
+        title: "Featured image required",
+        description: "Upload an image so the post can appear on the website.",
+        variant: "destructive",
+      });
+      return;
+    }
     saveMutation.mutate(formData);
+  };
+
+  const openImagePicker = (target: "featured" | "inline") => {
+    uploadTarget.current = target;
+    fileInputRef.current?.click();
+  };
+
+  const handleImageSelected = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    event.target.value = "";
+    if (!file) return;
+
+    const target = uploadTarget.current;
+    setUploading(target);
+    try {
+      const url = await uploadBlogImage(file);
+      if (target === "featured") {
+        setFormData((current) => ({ ...current, image: url }));
+      } else {
+        const figure = `\n<figure class="blog-inline-image"><img src="${url}" alt="" loading="lazy" /></figure>\n`;
+        setFormData((current) => ({ ...current, content: `${current.content}${figure}` }));
+      }
+      toast({
+        title: "Image uploaded",
+        description: "Publish the post and it will show on the website.",
+      });
+    } catch (error) {
+      toast({
+        title: "Upload failed",
+        description: error instanceof Error ? error.message : "Could not upload the image.",
+        variant: "destructive",
+      });
+    } finally {
+      setUploading(null);
+    }
   };
 
   const wordCount = formData.content.split(/\s+/).filter(Boolean).length;
@@ -849,6 +920,13 @@ function BlogFormDialog({
         </div>
         
         <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto py-4 -mx-6 px-6">
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/jpeg,image/png,image/webp,image/gif"
+            className="hidden"
+            onChange={handleImageSelected}
+          />
           {/* Content Tab */}
           {activeTab === "content" && (
             <div className="space-y-6">
@@ -880,9 +958,19 @@ function BlogFormDialog({
               </div>
 
               <div className="space-y-2">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-3">
                   <Label htmlFor="content">Full Content *</Label>
-                  <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                  <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={() => openImagePicker("inline")}
+                      disabled={uploading !== null}
+                    >
+                      <Upload className="h-3.5 w-3.5 mr-1.5" />
+                      {uploading === "inline" ? "Uploading..." : "Insert image"}
+                    </Button>
                     <span>{wordCount} words</span>
                     <span>{readTime} min read</span>
                   </div>
@@ -936,26 +1024,42 @@ function BlogFormDialog({
                     />
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4 mt-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="date">Publish Date *</Label>
-                    <Input
-                      id="date"
-                      value={formData.date}
-                      onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                      placeholder="Nov 1, 2024"
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="image">Featured Image</Label>
+                <div className="space-y-2 mt-4">
+                  <Label htmlFor="date">Publish Date *</Label>
+                  <Input
+                    id="date"
+                    value={formData.date}
+                    onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                    placeholder="Nov 1, 2024"
+                    required
+                  />
+                </div>
+                <div className="space-y-2 mt-4">
+                  <Label htmlFor="image">Featured Image *</Label>
+                  <div className="flex gap-2">
                     <Input
                       id="image"
                       value={formData.image}
                       onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                      placeholder="blog_market_1"
+                      placeholder="Upload an image or paste an image URL"
                     />
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => openImagePicker("featured")}
+                      disabled={uploading !== null}
+                    >
+                      <Upload className="h-4 w-4 mr-1.5" />
+                      {uploading === "featured" ? "Uploading..." : "Upload"}
+                    </Button>
                   </div>
+                  {formData.image ? (
+                    <img
+                      src={getImageUrl(formData.image)}
+                      alt="Featured preview"
+                      className="mt-2 h-40 w-full rounded-lg object-cover border"
+                    />
+                  ) : null}
                 </div>
               </div>
 

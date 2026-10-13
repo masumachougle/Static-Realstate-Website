@@ -42,7 +42,12 @@ export const imageMap: Record<string, string> = {
 };
 
 export function getImageUrl(imageId: string): string {
-  if (imageId.startsWith("/") || imageId.startsWith("http")) {
+  if (
+    imageId.startsWith("/") ||
+    imageId.startsWith("http") ||
+    imageId.startsWith("data:") ||
+    imageId.startsWith("blob:")
+  ) {
     return imageId;
   }
   return imageMap[imageId] || villaImage;
